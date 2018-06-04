@@ -1,0 +1,30 @@
+#top{
+    margin-top: 10px;
+}
+
+#logo-block{
+    margin-left: 17px;
+}
+
+#fatec-logo{
+    max-width: 250px;
+    min-width: 250px;
+}
+
+#title{
+    margin-top: -52px;
+}
+
+@media (max-width: 862px) {
+    #title{
+        margin-top: 0px !important;
+    }
+
+    #logo-block{
+        margin-left: 0px;
+    }
+}
+
+/*#logo-block{
+    margin-top: -55px;
+}*/

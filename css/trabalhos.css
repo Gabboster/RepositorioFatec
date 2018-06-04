@@ -1,0 +1,29 @@
+#artigos{
+    margin-top: 10px;
+}
+
+.artigo{
+    background-color: #F9FFF5;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #6DA550;
+    margin-bottom: 10px;
+}
+
+.artigo-text{
+    line-height: 1.6;
+}
+.event{
+    font-weight: bolder;
+}
+
+.artigo a{
+    text-decoration: none !important;
+    color: black;
+}
+
+.artigo a:hover{
+    
+    color: brown;
+}

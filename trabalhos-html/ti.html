@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/style/style.css">
+
+    <script src="/jquery/jquery.js"></script>
+    <script src="/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#trabalhos').load('/templates/template-trabalhos.html');
+            $('#navbar').load('/templates/template-navbar.html');
+            $('#footer').load('/templates/template-footer.html');
+        });
+    </script>
+    <title>Repositório de Conteúdo</title>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="trabalhos"></div>  
+    <div id="footer"></div>
+  </body>
+</html>

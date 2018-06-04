@@ -1,0 +1,76 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-10-offset3">
+            <div class="well well-sm" id="formulario">
+                <form id="form-cadastro" action="" enctype="multipart/form-data" method="POST">
+                <p id="cadastro-titulo">Cadastro e inclusão de projeto</p>
+                <div class="row">
+                    <div class="col-md-4" id="left-inputs">
+                        <div class="form-group">
+                            <label >
+                                Título</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label >
+                                Autores</label>
+                            <input type="text" class="form-control" id="autor" name="autor" placeholder="Autor, Autor, A..." required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label >
+                                Ano</label>
+                            <input type="text" class="form-control" id="ano" name="ano" placeholder="Ano" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label >
+                                Evento</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="evento" name="evento" placeholder="Evento" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label >
+                                Eixo</label>
+                            <select id="eixo" name="eixo" class="form-control" required="required">
+                                <option value="null" selected="">Eixos:</option>
+                                <option value="Gestão e Projetos">Gestão e Projetos</option>
+                                <option value="Produção Alimentícia">Produção Alimentícia</option>
+                                <option value="Tecnologia da Informação">Tecnologia da Informação</option>
+                                <option value="Controles e Processos Industriais">Controles e Processos Industriais</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                                <label >
+                                    Status</label>
+                                <input type="text" name="status"class="form-control" id="status" placeholder="Em andamento; Encerrado" required="required" />
+                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" id="resumo-protocolo">
+                            <label >
+                                Resumo</label>
+                            <textarea class="form-control" rows="15" cols="150" id="resumo" name="resumo"required="required"
+                                placeholder="Resumo"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                            <br>
+                        <div class="form-group">   
+                            <span class="control-fileupload">
+                                <input type="file" id="userfile" name="userfile" accept="application/pdf" >
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary pull-right" id="registrar">
+                            Cadastrar
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

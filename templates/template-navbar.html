@@ -1,0 +1,123 @@
+<div class="container-fluid" id="top">
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-4">
+                  <img id="fatec-logo" class="img-responsive" src="/images/fatec_logo.svg">
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-8">
+                  <h1 id="h1-row">Repositório De Conteúdo</h1>
+              </div>
+          </div>
+        </div>
+        <nav class="navbar" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <form class="navbar-form pull-left" role="search">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Num. protocolo" id="pesquisarInput">
+                  <div class="input-group-btn">
+                     <button type="submit" id="pesquisarBtn" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                  </div>
+               </div>
+          </form>
+        </div> 
+         
+        <div id="uncollapsble">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+              <li class="dropdown">
+                  <a href="/index.html">Home </a>
+                </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produção Ciêntífica <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/trabalhos-html/gestao.html">Eixo de Gestão e Negócios</a></li>
+                <li class="divider"></li>
+                <li><a href="/trabalhos-html/alimento.html">Eixo de Produção Alimentícia</a></li>
+                <li class="divider"></li>
+                <li><a href="/trabalhos-html/ti.html">Eixo de Tecnologia da Informação e Comunicação</a></li>
+                <li class="divider"></li>
+                <li><a href="/trabalhos-html/industrial.html">Eixo de Controles e Processos Industriais</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos Ciêntíficos <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Resumo Simples</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Resumo Expandido</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Artigo</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extensão Universitária <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Eixo de Gestão e Negócios</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Eixo de Produção Alimentícia</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Eixo de Tecnologia da Informação e Comunicação</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Eixo de Controles e Processos Industriais</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <ul class="nav navbar-right">
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"> Conta</span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="/cadastro-projeto.html">Cadastro e Protocolo de Projetos</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Gerenciar Conta</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/login.html">Sair</a></li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+      </nav>   
+      </div>
+
+    <script>
+      $(document).ready(function(){
+        $("#pesquisarBtn").click(function(e){
+          e.preventDefault();
+          let valorPesquisa = $('#pesquisarInput').val();
+          if (window.location.href.includes('index.html')) {
+            $('#team').empty();
+          } else {
+            $('#artigos').empty();
+            $('#filter-buttons').remove();
+            $('#setor').remove();
+            $("#artigos").css('margin-top', '10px');
+          }
+
+          $.ajax({
+            url: '/php/pesquisa.php',
+                    type: "get",
+                    data: {valor : valorPesquisa},
+                    success: function(returnVal){
+                      if (returnVal.length > 0) {
+                        returnVal = JSON.parse(returnVal);
+                        for (let i = 0; i < returnVal.length; i++) {
+                            $('#artigos').append('<div class="artigo"><a href="#"><div class="row"><div class="col-sm-12"><p class="text-left"><h3>' + returnVal[i].titulo + '</h3></p></div></div></a><div class="row"><div class="col-lg-12"><h5 class="artigo-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="event">Resumo: </span>' + returnVal[i].resumo + '</h5></div></div><div class="row"><div class="col-lg-12"><p><span class="event">Autores: </span> <a href="#">' + returnVal[i].autor + '</a></p></div></div><div class="row"><div class="col-lg-12"><p><span class="event">Nº Procolo: </span> <a href="#">' + returnVal[i].id + '</a></p></div></div><div class="row"><div class="col-lg-12"><p><span class="event">Ano: </span> <a href="#">' + returnVal[i].ano + '</a></p></div></div><div class="row"><div class="col-lg-4"><p><span class="event">Evento: </span> <a href="#">InovaTec</a></p></div></div><div class="row"><div class="col-lg-4"><a href="'+ returnVal[i].caminho +'" target="_blank" download"><span>Baixar</span> <img src="/images/baixar.png" width="15"></a></div></div></div>');    
+                        }
+                    } else {
+                        $('#artigos').append('<h3>Nenhum resultado encontrado</h3>');
+                    }
+                    
+                    },
+                    error:function(){
+                        alert("Requisição falhou");
+
+                    }   
+          });
+        });
+      });
+    </script>

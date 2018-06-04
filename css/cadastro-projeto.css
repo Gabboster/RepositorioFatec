@@ -1,0 +1,33 @@
+#cadastro-titulo{
+    font-size: 25px;
+}
+
+#formulario-container{
+    margin: 0 auto;
+    width: 120%;
+}
+
+#formulario{
+    margin: 0 auto;
+    
+    background-color: white;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    margin-top: 20px;
+
+    padding: 20px;
+}
+
+#left-inputs input{
+    width: 250px !important;
+}
+#resumo{
+   width: 134% !important;
+}
+
+@media(max-width: 992px){
+    #resumo{
+        width: 100% !important;
+    }
+        
+}
